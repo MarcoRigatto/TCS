@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riffly - Biblioteca</title>
+</head>
+<body>
+
+    <header>
+        <h1>Riffly 🎸</h1>
+        <p>Organize. Practice. Play.</p>
+
+        <nav aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="biblioteca.html">Biblioteca</a>
+            <a href="cadastro.html">Cadastrar música</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Biblioteca de músicas</h2>
+            <p>Pesquise e filtre as músicas do seu repertório.</p>
+        </section>
+
+        <section>
+            <h2>Pesquisa e filtros</h2>
+
+            <form action="#" method="get">
+                <div>
+                    <label for="pesquisa">Pesquisar música:</label>
+                    <input type="search" id="pesquisa" name="pesquisa" placeholder="Nome da música">
+                </div>
+
+                <div>
+                    <label for="artista">Artista:</label>
+                    <select id="artista" name="artista">
+                        <option value="">Todos</option>
+                        <option value="foo-fighters">Foo Fighters</option>
+                        <option value="metallica">Metallica</option>
+                        <option value="the-beatles">The Beatles</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="afinacao">Afinação:</label>
+                    <select id="afinacao" name="afinacao">
+                        <option value="">Todas</option>
+                        <option value="standard">Standard</option>
+                        <option value="drop-d">Drop D</option>
+                        <option value="drop-c">Drop C</option>
+                        <option value="d-standard">D Standard</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="dificuldade">Dificuldade:</label>
+                    <select id="dificuldade" name="dificuldade">
+                        <option value="">Todas</option>
+                        <option value="facil">Fácil</option>
+                        <option value="media">Média</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="status">Status de aprendizado:</label>
+                    <select id="status" name="status">
+                        <option value="">Todos</option>
+                        <option value="nao-iniciada">Não iniciada</option>
+                        <option value="aprendendo">Aprendendo</option>
+                        <option value="em-pratica">Em prática</option>
+                        <option value="dominada">Dominada</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="genero">Gênero:</label>
+                    <input type="text" id="genero" name="genero" placeholder="Ex.: Rock">
+                </div>
+
+                <button type="submit">Pesquisar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Músicas encontradas</h2>
+
+            <article>
+                <h3>Everlong</h3>
+                <p><strong>Artista:</strong> Foo Fighters</p>
+                <p><strong>Afinação:</strong> Drop D</p>
+                <p><strong>Instrumento:</strong> Guitarra</p>
+                <p><strong>Dificuldade:</strong> Média</p>
+                <p><strong>Status:</strong> Aprendendo</p>
+                <p><strong>Gênero:</strong> Rock</p>
+                <p><strong>Tags:</strong> Riff, Rock</p>
+                <a href="#">Ver detalhes</a>
+            </article>
+
+            <article>
+                <h3>Nothing Else Matters</h3>
+                <p><strong>Artista:</strong> Metallica</p>
+                <p><strong>Afinação:</strong> Standard</p>
+                <p><strong>Instrumento:</strong> Guitarra</p>
+                <p><strong>Dificuldade:</strong> Média</p>
+                <p><strong>Status:</strong> Dominada</p>
+                <p><strong>Gênero:</strong> Metal</p>
+                <p><strong>Tags:</strong> Solo, Favorite</p>
+                <a href="#">Ver detalhes</a>
+            </article>
+
+            <article>
+                <h3>Blackbird</h3>
+                <p><strong>Artista:</strong> The Beatles</p>
+                <p><strong>Afinação:</strong> Standard</p>
+                <p><strong>Instrumento:</strong> Violão</p>
+                <p><strong>Dificuldade:</strong> Difícil</p>
+                <p><strong>Status:</strong> Em prática</p>
+                <p><strong>Gênero:</strong> Rock</p>
+                <p><strong>Tags:</strong> Fingerstyle, Acoustic</p>
+                <a href="#">Ver detalhes</a>
+            </article>
+        </section>
+
+        <section>
+            <h2>Nova música</h2>
+            <p><a href="cadastro.html">Cadastrar uma nova música no repertório</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riffly - Organize. Practice. Play.</p>
+    </footer>
+
+</body>
+</html>

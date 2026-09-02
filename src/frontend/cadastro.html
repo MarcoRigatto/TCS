@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riffly - Cadastrar Música</title>
+</head>
+<body>
+
+    <header>
+        <h1>Riffly 🎸</h1>
+        <p>Organize. Practice. Play.</p>
+
+        <nav aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="biblioteca.html">Biblioteca</a>
+            <a href="cadastro.html">Cadastrar música</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cadastrar música</h2>
+            <p>Adicione uma nova música ao seu repertório.</p>
+        </section>
+
+        <section>
+            <form action="#" method="post">
+
+                <fieldset>
+                    <legend>Informações da música</legend>
+
+                    <div>
+                        <label for="titulo">Título da música:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+
+                    <div>
+                        <label for="artista">Artista ou banda:</label>
+                        <input type="text" id="artista" name="artista" required>
+                    </div>
+
+                    <div>
+                        <label for="album">Álbum:</label>
+                        <input type="text" id="album" name="album">
+                    </div>
+
+                    <div>
+                        <label for="afinacao">Afinação:</label>
+                        <select id="afinacao" name="afinacao" required>
+                            <option value="">Selecione uma afinação</option>
+                            <option value="standard">Standard</option>
+                            <option value="drop-d">Drop D</option>
+                            <option value="drop-c">Drop C</option>
+                            <option value="d-standard">D Standard</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="instrumento">Instrumento:</label>
+                        <select id="instrumento" name="instrumento" required>
+                            <option value="">Selecione um instrumento</option>
+                            <option value="guitarra">Guitarra</option>
+                            <option value="violao">Violão</option>
+                            <option value="baixo">Baixo</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="genero">Gênero:</label>
+                        <input type="text" id="genero" name="genero">
+                    </div>
+
+                    <div>
+                        <label for="dificuldade">Dificuldade:</label>
+                        <select id="dificuldade" name="dificuldade" required>
+                            <option value="">Selecione a dificuldade</option>
+                            <option value="facil">Fácil</option>
+                            <option value="media">Média</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <span>Status de aprendizado:</span>
+
+                        <input type="radio" id="nao-iniciada" name="status" value="nao-iniciada" checked>
+                        <label for="nao-iniciada">Não iniciada</label>
+
+                        <input type="radio" id="aprendendo" name="status" value="aprendendo">
+                        <label for="aprendendo">Aprendendo</label>
+
+                        <input type="radio" id="em-pratica" name="status" value="em-pratica">
+                        <label for="em-pratica">Em prática</label>
+
+                        <input type="radio" id="dominada" name="status" value="dominada">
+                        <label for="dominada">Dominada</label>
+                    </div>
+
+                    <div>
+                        <label for="tags">Tags:</label>
+                        <input type="text" id="tags" name="tags" placeholder="Ex.: Rock, Riff, Solo">
+                    </div>
+
+                    <div>
+                        <label for="observacoes">Observações:</label>
+                        <textarea id="observacoes" name="observacoes" rows="5" cols="40"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Fonte da tablatura</legend>
+
+                    <div>
+                        <label for="tipo-fonte">Tipo de fonte:</label>
+                        <select id="tipo-fonte" name="tipo-fonte">
+                            <option value="">Selecione</option>
+                            <option value="guitar-pro">Guitar Pro</option>
+                            <option value="pdf">PDF</option>
+                            <option value="site">Site externo</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="fonte">Arquivo ou link da tablatura:</label>
+                        <input type="text" id="fonte" name="fonte" placeholder="Arquivo ou URL">
+                    </div>
+                </fieldset>
+
+                <button type="submit">Cadastrar música</button>
+                <button type="reset">Limpar formulário</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riffly - Organize. Practice. Play.</p>
+    </footer>
+
+</body>
+</html>
