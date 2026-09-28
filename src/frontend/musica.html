@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riffly — Música</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="musica">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html" aria-label="Riffly — início">
+        <span class="brand-name">Riffly <span class="brand-mark">♪</span></span>
+        <span class="brand-tagline">Organize. Practice. Play.</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+        <a class="nav-link" href="cadastro.html">Cadastrar música</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-content">
+    <div id="detail-not-found" class="empty-state hidden">
+      <strong>Música não encontrada</strong>
+      <p>A música pode ter sido removida ou o endereço não é válido.</p>
+      <a class="button button-primary" href="biblioteca.html">Voltar para a biblioteca</a>
+    </div>
+
+    <div id="song-detail">
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <div>
+          <p class="eyebrow">Detalhes da música</p>
+          <h1 id="detail-title">Música</h1>
+          <p class="detail-artist" id="detail-artist"></p>
+        </div>
+        <span id="detail-status" class="status-badge">Status</span>
+      </section>
+
+      <section class="detail-grid" aria-label="Informações da música">
+        <article class="detail-panel">
+          <div class="panel-heading"><h2>Informações</h2><p>Dados cadastrados para esta música.</p></div>
+          <dl class="detail-meta">
+            <div><dt>Álbum</dt><dd id="detail-album"></dd></div>
+            <div><dt>Afinação</dt><dd id="detail-tuning"></dd></div>
+            <div><dt>Instrumento</dt><dd id="detail-instrument"></dd></div>
+            <div><dt>Gênero</dt><dd id="detail-genre"></dd></div>
+            <div><dt>Dificuldade</dt><dd id="detail-difficulty"></dd></div>
+          </dl>
+          <div class="detail-block">
+            <h3>Tags</h3>
+            <div id="detail-tags" class="tag-list"></div>
+          </div>
+          <div class="detail-block">
+            <h3>Observações</h3>
+            <p id="detail-notes" class="detail-notes"></p>
+          </div>
+        </article>
+
+        <article class="detail-panel">
+          <div class="panel-heading"><h2>Tablaturas e fontes</h2><p>Links e fontes associados a esta música.</p></div>
+          <div id="sources-list" class="source-list"></div>
+        </article>
+      </section>
+
+      <section class="detail-actions">
+        <a class="button button-secondary" href="biblioteca.html">Voltar para biblioteca</a>
+        <a class="button button-primary" id="edit-song" href="cadastro.html">Editar música</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container">Riffly · Organize. Practice. Play.</div></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
