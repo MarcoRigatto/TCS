@@ -1,89 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riffly - Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riffly — Início</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="inicio">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html" aria-label="Riffly — início">
+        <span class="brand-name">Riffly <span class="brand-mark">♪</span></span>
+        <span class="brand-tagline">Organize. Practice. Play.</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a class="nav-link active" href="index.html">Início</a>
+        <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+        <a class="nav-link" href="cadastro.html">Cadastrar música</a>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-        <h1>Riffly 🎸</h1>
-        <p>Organize. Practice. Play.</p>
+  <main class="container page-content">
+    <section class="page-intro">
+      <p class="eyebrow">Seu repertório</p>
+      <h1>Dashboard</h1>
+      <p>Uma visão geral das suas músicas e do seu progresso musical.</p>
+    </section>
 
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a>
-            <a href="biblioteca.html">Biblioteca</a>
-            <a href="cadastro.html">Cadastrar música</a>
-        </nav>
-    </header>
+    <section aria-labelledby="resumo-titulo">
+      <div class="section-heading">
+        <div><h2 id="resumo-titulo">Resumo do repertório</h2></div>
+      </div>
+      <div class="summary-grid">
+        <article class="summary-card"><span>Músicas cadastradas</span><strong id="total-musicas">0</strong><small>no repertório</small></article>
+        <article class="summary-card"><span>Músicas dominadas</span><strong id="total-dominadas">0</strong><small>já finalizadas</small></article>
+        <article class="summary-card"><span>Em aprendizado</span><strong id="total-aprendendo">0</strong><small>em desenvolvimento</small></article>
+        <article class="summary-card"><span>Não iniciadas</span><strong id="total-nao-iniciadas">0</strong><small>aguardando estudo</small></article>
+      </div>
+    </section>
 
-    <main>
-        <section>
-            <h2>Dashboard</h2>
-            <p>Visão geral do seu repertório e do seu progresso musical.</p>
-        </section>
+    <section aria-labelledby="recentes-titulo">
+      <div class="section-heading">
+        <div><p class="eyebrow">Atividade recente</p><h2 id="recentes-titulo">Músicas estudadas recentemente</h2></div>
+        <a class="text-link" href="biblioteca.html">Ver biblioteca</a>
+      </div>
+      <div id="recent-songs" class="song-grid"></div>
+    </section>
 
-        <section>
-            <h2>Resumo do repertório</h2>
+    <section class="quick-actions" aria-labelledby="acoes-titulo">
+      <div><p class="eyebrow">Comece por aqui</p><h2 id="acoes-titulo">Acesso rápido</h2></div>
+      <div class="action-group">
+        <a class="button button-secondary" href="biblioteca.html">Consultar biblioteca</a>
+        <a class="button button-primary" href="cadastro.html">Cadastrar nova música</a>
+      </div>
+    </section>
+  </main>
 
-            <article>
-                <h3>Músicas cadastradas</h3>
-                <p>42 músicas</p>
-            </article>
-
-            <article>
-                <h3>Músicas dominadas</h3>
-                <p>12 músicas</p>
-            </article>
-
-            <article>
-                <h3>Músicas em aprendizado</h3>
-                <p>8 músicas</p>
-            </article>
-
-            <article>
-                <h3>Músicas não iniciadas</h3>
-                <p>22 músicas</p>
-            </article>
-        </section>
-
-        <section>
-            <h2>Músicas recentemente estudadas</h2>
-
-            <article>
-                <h3>Everlong</h3>
-                <p>Artista: Foo Fighters</p>
-                <p>Afinação: Drop D</p>
-                <p>Status: Aprendendo</p>
-            </article>
-
-            <article>
-                <h3>Nothing Else Matters</h3>
-                <p>Artista: Metallica</p>
-                <p>Afinação: Standard</p>
-                <p>Status: Dominada</p>
-            </article>
-
-            <article>
-                <h3>Blackbird</h3>
-                <p>Artista: The Beatles</p>
-                <p>Afinação: Standard</p>
-                <p>Status: Em prática</p>
-            </article>
-        </section>
-
-        <section>
-            <h2>Acesso rápido</h2>
-            <a href="biblioteca.html">Consultar biblioteca</a>
-            <br>
-            <a href="cadastro.html">Cadastrar nova música</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Riffly - Organize. Practice. Play.</p>
-    </footer>
-
+  <footer class="site-footer"><div class="container">Riffly · Organize. Practice. Play.</div></footer>
+  <script src="js/app.js"></script>
 </body>
 </html>

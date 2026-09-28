@@ -1,144 +1,150 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riffly - Cadastrar Música</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riffly — Cadastrar música</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="cadastro">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html" aria-label="Riffly — início">
+        <span class="brand-name">Riffly <span class="brand-mark">♪</span></span>
+        <span class="brand-tagline">Organize. Practice. Play.</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+        <a class="nav-link active" href="cadastro.html">Cadastrar música</a>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-        <h1>Riffly 🎸</h1>
-        <p>Organize. Practice. Play.</p>
+  <main class="container page-content">
+    <section class="page-intro">
+      <p class="eyebrow" id="page-eyebrow">Novo repertório</p>
+      <h1 id="page-title">Cadastrar música</h1>
+      <p id="page-description">Adicione uma nova música e organize as informações importantes para o seu estudo.</p>
+    </section>
 
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a>
-            <a href="biblioteca.html">Biblioteca</a>
-            <a href="cadastro.html">Cadastrar música</a>
-        </nav>
-    </header>
+    <section class="form-panel" aria-labelledby="form-titulo">
+      <div class="panel-heading">
+        <h2 id="form-titulo">Informações da música</h2>
+        <p id="form-subtitulo">Dados principais da música e do seu estudo.</p>
+      </div>
 
-    <main>
-        <section>
-            <h2>Cadastrar música</h2>
-            <p>Adicione uma nova música ao seu repertório.</p>
-        </section>
+      <form id="song-form" novalidate>
+        <div id="form-message" class="form-message" aria-live="polite"></div>
 
-        <section>
-            <form action="#" method="post">
+        <div class="form-grid">
+          <div class="field field-span-2">
+            <label for="song-title">Título da música <span class="required">*</span></label>
+            <input id="song-title" name="title" type="text" placeholder="Ex.: Everlong">
+            <small class="field-error" id="error-title"></small>
+          </div>
 
-                <fieldset>
-                    <legend>Informações da música</legend>
+          <div class="field">
+            <label for="song-artist">Artista ou banda <span class="required">*</span></label>
+            <input id="song-artist" name="artist" type="text" placeholder="Ex.: Foo Fighters">
+            <small class="field-error" id="error-artist"></small>
+          </div>
 
-                    <div>
-                        <label for="titulo">Título da música:</label>
-                        <input type="text" id="titulo" name="titulo" required>
-                    </div>
+          <div class="field">
+            <label for="song-album">Álbum</label>
+            <input id="song-album" name="album" type="text" placeholder="Ex.: The Colour and the Shape">
+          </div>
 
-                    <div>
-                        <label for="artista">Artista ou banda:</label>
-                        <input type="text" id="artista" name="artista" required>
-                    </div>
+          <div class="field">
+            <label for="song-tuning">Afinação <span class="required">*</span></label>
+            <select id="song-tuning" name="tuning">
+              <option value="">Selecione uma afinação</option>
+              <option>Standard</option>
+              <option>Drop D</option>
+              <option>Drop C</option>
+              <option>D Standard</option>
+            </select>
+            <small class="field-error" id="error-tuning"></small>
+          </div>
 
-                    <div>
-                        <label for="album">Álbum:</label>
-                        <input type="text" id="album" name="album">
-                    </div>
+          <div class="field">
+            <label for="song-instrument">Instrumento <span class="required">*</span></label>
+            <select id="song-instrument" name="instrument">
+              <option value="">Selecione um instrumento</option>
+              <option>Guitarra</option>
+              <option>Violão</option>
+              <option>Baixo</option>
+            </select>
+            <small class="field-error" id="error-instrument"></small>
+          </div>
 
-                    <div>
-                        <label for="afinacao">Afinação:</label>
-                        <select id="afinacao" name="afinacao" required>
-                            <option value="">Selecione uma afinação</option>
-                            <option value="standard">Standard</option>
-                            <option value="drop-d">Drop D</option>
-                            <option value="drop-c">Drop C</option>
-                            <option value="d-standard">D Standard</option>
-                        </select>
-                    </div>
+          <div class="field">
+            <label for="song-genre">Gênero</label>
+            <input id="song-genre" name="genre" type="text" placeholder="Ex.: Rock">
+          </div>
 
-                    <div>
-                        <label for="instrumento">Instrumento:</label>
-                        <select id="instrumento" name="instrumento" required>
-                            <option value="">Selecione um instrumento</option>
-                            <option value="guitarra">Guitarra</option>
-                            <option value="violao">Violão</option>
-                            <option value="baixo">Baixo</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
+          <div class="field">
+            <label for="song-difficulty">Dificuldade <span class="required">*</span></label>
+            <select id="song-difficulty" name="difficulty">
+              <option value="">Selecione a dificuldade</option>
+              <option>Iniciante</option>
+              <option>Intermediária</option>
+              <option>Avançada</option>
+            </select>
+            <small class="field-error" id="error-difficulty"></small>
+          </div>
 
-                    <div>
-                        <label for="genero">Gênero:</label>
-                        <input type="text" id="genero" name="genero">
-                    </div>
+          <fieldset class="field field-span-2 status-field">
+            <legend>Status de aprendizado <span class="required">*</span></legend>
+            <div class="status-options">
+              <label><input type="radio" name="status" value="Não iniciada" checked> Não iniciada</label>
+              <label><input type="radio" name="status" value="Aprendendo"> Aprendendo</label>
+              <label><input type="radio" name="status" value="Em prática"> Em prática</label>
+              <label><input type="radio" name="status" value="Dominada"> Dominada</label>
+            </div>
+          </fieldset>
 
-                    <div>
-                        <label for="dificuldade">Dificuldade:</label>
-                        <select id="dificuldade" name="dificuldade" required>
-                            <option value="">Selecione a dificuldade</option>
-                            <option value="facil">Fácil</option>
-                            <option value="media">Média</option>
-                            <option value="dificil">Difícil</option>
-                        </select>
-                    </div>
+          <div class="field field-span-2">
+            <label for="song-tags">Tags</label>
+            <input id="song-tags" name="tags" type="text" placeholder="Ex.: Rock, Riff, Solo">
+          </div>
 
-                    <div>
-                        <span>Status de aprendizado:</span>
+          <div class="field field-span-2">
+            <label for="song-notes">Observações</label>
+            <textarea id="song-notes" name="notes" rows="4" placeholder="Anote detalhes importantes para o estudo."></textarea>
+          </div>
+        </div>
 
-                        <input type="radio" id="nao-iniciada" name="status" value="nao-iniciada" checked>
-                        <label for="nao-iniciada">Não iniciada</label>
+        <fieldset class="source-section">
+          <legend>Fonte da tablatura</legend>
+          <div class="source-grid">
+            <div class="field">
+              <label for="source-type">Tipo de fonte</label>
+              <select id="source-type" name="sourceType">
+                <option value="">Selecione</option>
+                <option>Guitar Pro</option>
+                <option>PDF</option>
+                <option>Site externo</option>
+                <option>YouTube</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="source-url">Link da fonte</label>
+              <input id="source-url" name="sourceUrl" type="url" placeholder="https://...">
+              <small class="field-error" id="error-source-url"></small>
+            </div>
+          </div>
+        </fieldset>
 
-                        <input type="radio" id="aprendendo" name="status" value="aprendendo">
-                        <label for="aprendendo">Aprendendo</label>
+        <div class="form-actions">
+          <a class="button button-secondary" href="biblioteca.html">Cancelar</a>
+          <button class="button button-primary" type="submit">Cadastrar música</button>
+        </div>
+      </form>
+    </section>
+  </main>
 
-                        <input type="radio" id="em-pratica" name="status" value="em-pratica">
-                        <label for="em-pratica">Em prática</label>
-
-                        <input type="radio" id="dominada" name="status" value="dominada">
-                        <label for="dominada">Dominada</label>
-                    </div>
-
-                    <div>
-                        <label for="tags">Tags:</label>
-                        <input type="text" id="tags" name="tags" placeholder="Ex.: Rock, Riff, Solo">
-                    </div>
-
-                    <div>
-                        <label for="observacoes">Observações:</label>
-                        <textarea id="observacoes" name="observacoes" rows="5" cols="40"></textarea>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Fonte da tablatura</legend>
-
-                    <div>
-                        <label for="tipo-fonte">Tipo de fonte:</label>
-                        <select id="tipo-fonte" name="tipo-fonte">
-                            <option value="">Selecione</option>
-                            <option value="guitar-pro">Guitar Pro</option>
-                            <option value="pdf">PDF</option>
-                            <option value="site">Site externo</option>
-                            <option value="youtube">YouTube</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="fonte">Arquivo ou link da tablatura:</label>
-                        <input type="text" id="fonte" name="fonte" placeholder="Arquivo ou URL">
-                    </div>
-                </fieldset>
-
-                <button type="submit">Cadastrar música</button>
-                <button type="reset">Limpar formulário</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Riffly - Organize. Practice. Play.</p>
-    </footer>
-
+  <footer class="site-footer"><div class="container">Riffly · Organize. Practice. Play.</div></footer>
+  <script src="js/app.js"></script>
 </body>
 </html>
