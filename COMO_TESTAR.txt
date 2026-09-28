@@ -1,0 +1,12 @@
+RIFFLY - COMO TESTAR
+
+Requisitos:
+- Python 3 instalado e configurado no PATH.
+
+Execução:
+1. Baixe/clique em INICIAR_RIFFLY.bat.
+2. Aguarde o servidor local iniciar.
+3. O navegador será aberto automaticamente.
+4. Para encerrar, feche o navegador e a janela do servidor.
+
+
