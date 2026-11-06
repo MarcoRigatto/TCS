@@ -80,6 +80,24 @@
       </form>
     </section>
 
+    <section class="online-search-panel" aria-labelledby="online-search-title">
+      <div class="panel-heading">
+        <p class="eyebrow">Catálogo externo</p>
+        <h2 id="online-search-title">Buscar músicas online</h2>
+        <p>Consulte o catálogo do iTunes/Apple sem alterar sua biblioteca local.</p>
+      </div>
+      <form id="online-search-form" class="online-search-form">
+        <div class="field">
+          <label for="online-term">Nome da música ou artista</label>
+          <input id="online-term" name="onlineTerm" type="search" placeholder="Ex.: System of a Down" required>
+        </div>
+        <button class="button button-primary" type="submit">Buscar online</button>
+      </form>
+      <p id="online-search-message" class="form-message" aria-live="polite"></p>
+      <div id="online-results" class="online-results" aria-live="polite"></div>
+      <p class="online-disclaimer">O botão de envio em cada resultado faz um POST demonstrativo ao JSONPlaceholder. O serviço simula a criação e não grava dados permanentemente nem adiciona a música ao seu Riffly.</p>
+    </section>
+
     <section aria-labelledby="resultados-titulo">
       <div class="section-heading">
         <div><p class="eyebrow" id="result-count">0 resultados</p><h2 id="resultados-titulo">Músicas encontradas</h2></div>
@@ -90,6 +108,6 @@
   </main>
 
   <footer class="site-footer"><div class="container">Riffly · Organize. Practice. Play.</div></footer>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
