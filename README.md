@@ -1,103 +1,28 @@
-# Riffly 🎸
+# Riffly — Organize. Practice. Play.
 
-**Organize. Practice. Play.**
+Aplicação web para organizar repertório musical, fontes de tablatura e acompanhar o aprendizado.
 
-Riffly é uma aplicação Web para músicos que desejam organizar seu repertório, centralizar suas tablaturas e acompanhar seu processo de prática e aprendizado.
+## Executar no Windows
 
-## Sobre o projeto
+1. Extraia a pasta completa do projeto.
+2. Execute `INICIAR_RIFFLY.bat`.
+3. O navegador abrirá em `http://127.0.0.1:8000/index.html`.
+4. Mantenha a janela do servidor aberta enquanto utiliza a aplicação.
 
-Músicos que estudam por conta própria podem utilizar diferentes formatos e fontes de tablaturas para aprender uma música. Uma mesma música pode possuir uma tablatura em Guitar Pro, um PDF, uma página no Ultimate Guitar ou um vídeo do YouTube.
+Também é possível abrir um terminal em `src/frontend` e executar:
 
-O Riffly tem como objetivo centralizar essas informações em um único lugar, facilitando a organização, consulta e acompanhamento do repertório.
-
-Além de organizar músicas e tablaturas, a aplicação permitirá registrar sessões de estudo e acompanhar o status de aprendizado de cada música.
-
-## Principais funcionalidades
-
-- Biblioteca de músicas e tablaturas;
-- Gerenciamento de afinações;
-- Controle do status de aprendizado;
-- Registro de sessões de estudo;
-- Organização do repertório;
-- Pesquisa e filtros;
-- Gerenciamento de tags;
-- Múltiplas fontes de tablatura para uma mesma música.
-
-## Fontes de tablatura
-
-O Riffly poderá trabalhar com diferentes tipos de fonte:
-
-- Guitar Pro;
-- PDF;
-- Links para sites externos;
-- YouTube;
-- Outros arquivos e links.
-
-Uma mesma música poderá possuir várias fontes associadas.
-
-## Principais entidades
-
-- `Song`
-- `Artist`
-- `Tuning`
-- `PracticeSession`
-- `Tag`
-- `TabSource`
-
-## Tecnologias previstas
-
-### Cliente
-
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-
-### Servidor
-
-- Java
-- Spring Boot
-- API REST
-
-### Persistência
-
-- PostgreSQL
-
-## Visão geral
-
-```text
-┌───────────────┐
-│    Usuário    │
-└───────┬───────┘
-        │
-        ▼
-┌────────────────────┐
-│    Riffly Web      │
-│ HTML / CSS / JS    │
-│    + Bootstrap     │
-└─────────┬──────────┘
-          │ HTTP / REST
-          ▼
-┌────────────────────┐
-│   Riffly Server    │
-│ Java / Spring Boot │
-│      REST API      │
-└─────────┬──────────┘
-          │
-          ▼
-┌────────────────────┐
-│     PostgreSQL     │
-└────────────────────┘
+```bash
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-## Documentação
+Depois, acesse `http://127.0.0.1:8000/index.html`.
 
-A proposta inicial do projeto está disponível em:
+> O servidor local é necessário para servir os módulos JavaScript ES e permitir que o navegador carregue seus imports. Não abra os HTMLs diretamente por `file://`.
 
-`/docs/proposta.md`
+## Organização do código
 
-## Etapas
+O front-end está em `src/frontend`. O ponto de entrada JavaScript é `js/app.js`, que inicializa módulos específicos de cada página. Os dados da biblioteca continuam persistidos no `localStorage` do navegador.
 
-- `etapa-01` — Proposta e especificação inicial
+## Etapa 5
 
-O projeto será desenvolvido de forma incremental durante o semestre, permitindo a evolução da aplicação conforme as próximas etapas da disciplina.
+A documentação da modularização e comunicação assíncrona está em [`docs/etapa-05.md`](docs/etapa-05.md). Na Biblioteca, use **Buscar músicas online** para consultar o catálogo iTunes/Apple e enviar um resultado ao serviço demonstrativo JSONPlaceholder. Essas chamadas exigem internet. O POST do JSONPlaceholder é simulado e não persiste registros.
