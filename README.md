@@ -26,3 +26,15 @@ O front-end está em `src/frontend`. O ponto de entrada JavaScript é `js/app.js
 ## Etapa 5
 
 A documentação da modularização e comunicação assíncrona está em [`docs/etapa-05.md`](docs/etapa-05.md). Na Biblioteca, use **Buscar músicas online** para consultar o catálogo iTunes/Apple e enviar um resultado ao serviço demonstrativo JSONPlaceholder. Essas chamadas exigem internet. O POST do JSONPlaceholder é simulado e não persiste registros.
+
+## Etapa 6 — Backend e API REST
+
+A Etapa 6 implementa o backend do Riffly utilizando Node.js e Express, com API REST para gerenciamento de músicas (CRUD).
+
+A API possui endpoints para listar, cadastrar, consultar, atualizar e excluir músicas, além de validação de dados e tratamento de erros.
+
+A persistência dos dados é realizada em arquivo JSON, permitindo manter os registros entre execuções.
+
+A documentação completa, endpoints implementados e evidências dos testes realizados no Postman estão disponíveis em [`docs/etapa-06.md`](docs/etapa-06.md).
+
+As evidências dos testes estão em [`docs/evidencias/etapa-06/`](docs/evidencias/etapa-06/).
