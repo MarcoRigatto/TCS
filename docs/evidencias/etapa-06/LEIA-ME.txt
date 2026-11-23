@@ -1,0 +1,13 @@
+# Evidências — Etapa 06
+
+Capturas dos testes realizados no Postman para a API REST do Riffly.
+
+01. POST criar música — configuração da requisição
+02. POST criar música — resposta e testes
+03. GET listar músicas — resposta e testes
+04. GET consultar música por ID — resposta e testes
+05. POST dados incompletos — validação HTTP 400
+06. GET ID inexistente — configuração da requisição
+07. GET ID inexistente — resposta HTTP 404 e testes
+
+As imagens documentam as requisições, os códigos de resposta e os resultados dos testes automatizados.
