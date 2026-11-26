@@ -1,0 +1,112 @@
+{
+  "info": {
+    "name": "Riffly API - Etapa 07 (PostgreSQL)",
+    "description": "Coleção de testes CRUD da API Riffly com persistência PostgreSQL. Execute Criar música antes de consultar, atualizar e excluir.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Listar músicas",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/musicas"
+      }
+    },
+    {
+      "name": "Criar música",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Everlong\",\n  \"artista\": \"Foo Fighters\",\n  \"afinacao\": \"Drop D\",\n  \"instrumento\": \"Guitarra\",\n  \"status\": \"Aprendendo\"\n}"
+        },
+        "url": "{{baseUrl}}/api/musicas"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 201) {",
+              "  const body = pm.response.json();",
+              "  pm.collectionVariables.set('id', body.dados.id);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consultar música por ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/musicas/{{id}}"
+      }
+    },
+    {
+      "name": "Atualizar música",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Dominada\",\n  \"observacoes\": \"Teste de atualizacao via Postman\"\n}"
+        },
+        "url": "{{baseUrl}}/api/musicas/{{id}}"
+      }
+    },
+    {
+      "name": "Excluir música",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/musicas/{{id}}"
+      }
+    },
+    {
+      "name": "Validar erro - dados incompletos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Musica sem artista\"\n}"
+        },
+        "url": "{{baseUrl}}/api/musicas"
+      }
+    },
+    {
+      "name": "Validar erro - ID inexistente",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/musicas/999999"
+      }
+    }
+  ]
+}

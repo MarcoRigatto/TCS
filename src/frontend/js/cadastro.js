@@ -1,15 +1,17 @@
-import { carregarMusicas } from "./storage.js";
 import { adicionarMusica, atualizarMusica, buscarMusicaPorId } from "./musicas.js";
 import { mostrarMensagem } from "./utils.js";
 import { validarFormulario, dadosDoFormulario, preencherFormulario, limparErrosFormulario } from "./ui.js";
 
-export function inicializarCadastro() {
+export async function inicializarCadastro() {
   const formulario = document.querySelector("#song-form");
   if (!formulario) return;
   const idEdicao = new URLSearchParams(window.location.search).get("id");
-  const musicaEdicao = idEdicao ? buscarMusicaPorId(idEdicao) : null;
+  let musicaEdicao = null;
 
-  if (musicaEdicao) {
+  if (idEdicao) {
+    try { musicaEdicao = await buscarMusicaPorId(idEdicao); }
+    catch (erro) { mostrarMensagem("form-message", erro.message, "error"); return; }
+    if (!musicaEdicao) { mostrarMensagem("form-message", "A música não foi encontrada.", "error"); return; }
     document.title = "Riffly — Editar música";
     document.querySelector("#page-eyebrow")?.replaceChildren(document.createTextNode("Atualizar repertório"));
     document.querySelector("#page-title")?.replaceChildren(document.createTextNode("Editar música"));
@@ -21,22 +23,27 @@ export function inicializarCadastro() {
     preencherFormulario(formulario, musicaEdicao);
   }
 
-  formulario.addEventListener("submit", evento => {
+  formulario.addEventListener("submit", async evento => {
     evento.preventDefault();
     const resultado = validarFormulario(formulario);
     if (!resultado.valido) { mostrarMensagem("form-message", "Corrija os campos indicados antes de salvar.", "error"); return; }
     const dadosMusica = dadosDoFormulario(resultado.dados);
-    if (musicaEdicao) {
-      try {
-        const atualizada = atualizarMusica(musicaEdicao.id, dadosMusica);
+    const botao = formulario.querySelector("button[type=submit]");
+    if (botao) { botao.disabled = true; botao.textContent = "Salvando..."; }
+    try {
+      if (musicaEdicao) {
+        const atualizada = await atualizarMusica(musicaEdicao.id, dadosMusica);
         mostrarMensagem("form-message", `"${atualizada.titulo}" foi atualizada com sucesso.`, "success");
         window.setTimeout(() => { window.location.href = `musica.html?id=${encodeURIComponent(atualizada.id)}`; }, 500);
-      } catch (erro) { mostrarMensagem("form-message", erro.message, "error"); }
-    } else {
-      const novaMusica = adicionarMusica(dadosMusica);
-      formulario.reset();
-      limparErrosFormulario();
-      mostrarMensagem("form-message", `"${novaMusica.titulo}" foi cadastrada com sucesso. Você pode cadastrar outra música.`, "success");
+      } else {
+        const novaMusica = await adicionarMusica(dadosMusica);
+        formulario.reset();
+        limparErrosFormulario();
+        mostrarMensagem("form-message", `"${novaMusica.titulo}" foi cadastrada com sucesso.`, "success");
+      }
+    } catch (erro) { mostrarMensagem("form-message", erro.message, "error"); }
+    finally {
+      if (botao) { botao.disabled = false; botao.textContent = musicaEdicao ? "Salvar alterações" : "Cadastrar música"; }
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   });

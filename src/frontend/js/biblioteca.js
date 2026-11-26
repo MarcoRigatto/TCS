@@ -15,14 +15,22 @@ function obterFiltros() {
   };
 }
 
-export function inicializarBiblioteca() {
-  const musicas = carregarMusicas();
-  preencherOpcoesFiltro(musicas);
-  renderizarBiblioteca(filtrarMusicas(musicas, obterFiltros()));
+export async function inicializarBiblioteca() {
+  let musicas = [];
+  try {
+    musicas = await carregarMusicas();
+    preencherOpcoesFiltro(musicas);
+    renderizarBiblioteca(filtrarMusicas(musicas, obterFiltros()));
+  } catch (erro) {
+    mostrarMensagem("filter-message", erro.message, "error");
+    return;
+  }
 
-  document.querySelector("#filter-form")?.addEventListener("submit", evento => {
+  document.querySelector("#filter-form")?.addEventListener("submit", async evento => {
     evento.preventDefault();
-    const lista = carregarMusicas();
+    let lista;
+    try { lista = await carregarMusicas(); }
+    catch (erro) { mostrarMensagem("filter-message", erro.message, "error"); return; }
     const filtros = obterFiltros();
     const resultados = filtrarMusicas(lista, filtros);
     preencherOpcoesFiltro(lista, filtros);
@@ -30,22 +38,27 @@ export function inicializarBiblioteca() {
     mostrarMensagem("filter-message", resultados.length ? "Filtros aplicados com sucesso." : "Nenhuma música corresponde aos filtros informados.", resultados.length ? "success" : "error");
   });
 
-  document.querySelector("#clear-filters")?.addEventListener("click", () => {
+  document.querySelector("#clear-filters")?.addEventListener("click", async () => {
     document.querySelector("#filter-form")?.reset();
-    const lista = carregarMusicas();
+    let lista;
+    try { lista = await carregarMusicas(); }
+    catch (erro) { mostrarMensagem("filter-message", erro.message, "error"); return; }
     preencherOpcoesFiltro(lista);
     renderizarBiblioteca(lista);
     mostrarMensagem("filter-message", "Filtros limpos.");
   });
 
-  document.querySelector("#library-list")?.addEventListener("click", evento => {
+  document.querySelector("#library-list")?.addEventListener("click", async evento => {
     const botao = evento.target.closest("[data-delete-id]");
     if (!botao) return;
-    const id = Number(botao.dataset.deleteId);
-    const musica = carregarMusicas().find(item => Number(item.id) === id);
+    const id = botao.dataset.deleteId;
+    const musica = musicas.find(item => String(item.id) === String(id));
     if (!musica || !window.confirm(`Deseja realmente remover "${musica.titulo}"?`)) return;
-    excluirMusica(id);
-    const lista = carregarMusicas();
+    try {
+      await excluirMusica(id);
+      musicas = await carregarMusicas();
+    } catch (erro) { mostrarMensagem("filter-message", erro.message, "error"); return; }
+    const lista = musicas;
     const filtros = obterFiltros();
     preencherOpcoesFiltro(lista, filtros);
     renderizarBiblioteca(filtrarMusicas(lista, filtros));

@@ -1,40 +1,26 @@
-import { carregarMusicas, salvarMusicas } from "./storage.js";
-import { gerarId, normalizar } from "./utils.js";
+import { carregarMusicas, criarMusicaNaApi, atualizarMusicaNaApi, buscarMusicaNaApi, excluirMusicaNaApi } from "./storage.js";
+import { normalizar } from "./utils.js";
 
 export const AFINACOES_DISPONIVEIS = ["Standard", "Drop D", "Drop C", "D Standard", "Drop B", "DADGAD"];
 
-export function adicionarMusica(dadosMusica) {
-  const musicas = carregarMusicas();
-  const novaMusica = { id: gerarId(), ...dadosMusica };
-  musicas.push(novaMusica);
-  salvarMusicas(musicas);
-  return novaMusica;
+export async function adicionarMusica(dadosMusica) {
+  return criarMusicaNaApi(dadosMusica);
 }
 
-export function atualizarMusica(id, dadosAtualizados) {
-  const musicas = carregarMusicas();
-  const existente = musicas.find(item => String(item.id) === String(id));
-  if (!existente) throw new Error("A música não foi encontrada para edição.");
-
-  const fontesExistentes = Array.isArray(existente.fontes) ? existente.fontes : [];
-  const fontesAtualizadas = dadosAtualizados.fontes?.length
-    ? (fontesExistentes.length ? [dadosAtualizados.fontes[0], ...fontesExistentes.slice(1)] : dadosAtualizados.fontes)
-    : fontesExistentes;
-  const atualizada = { ...existente, ...dadosAtualizados, fontes: fontesAtualizadas };
-  salvarMusicas(musicas.map(item => String(item.id) === String(id) ? atualizada : item));
-  return atualizada;
+export async function atualizarMusica(id, dadosAtualizados) {
+  return atualizarMusicaNaApi(id, dadosAtualizados);
 }
 
-export function excluirMusica(id) {
-  const musicas = carregarMusicas();
-  const encontrada = musicas.find(item => Number(item.id) === Number(id));
-  if (!encontrada) return null;
-  salvarMusicas(musicas.filter(item => Number(item.id) !== Number(id)));
-  return encontrada;
+export async function excluirMusica(id) {
+  await excluirMusicaNaApi(id);
 }
 
-export function buscarMusicaPorId(id) {
-  return carregarMusicas().find(musica => String(musica.id) === String(id)) || null;
+export async function buscarMusicaPorId(id) {
+  try { return await buscarMusicaNaApi(id); }
+  catch (erro) {
+    if (erro.message === "Musica nao encontrada.") return null;
+    throw erro;
+  }
 }
 
 export function filtrarMusicas(musicas, filtros) {

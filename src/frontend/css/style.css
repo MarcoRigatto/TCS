@@ -175,3 +175,24 @@ section{margin-bottom:2.25rem}.section-heading{display:flex;align-items:end;just
     width: 100%;
   }
 }
+
+/* Busca externa e estados assíncronos — Etapa 05 */
+.online-search-panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem;box-shadow:var(--shadow);margin:2rem 0}
+.online-search-form{display:flex;align-items:end;gap:.75rem}
+.online-search-form .field{flex:1;min-width:0}
+.online-search-form button{min-height:40px}
+.online-results{display:grid;gap:.75rem}
+.online-result-card{display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:1rem;padding:.8rem;border:1px solid var(--border);border-radius:9px;background:#fff}
+.online-result-card img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:var(--bg)}
+.online-result-info{min-width:0}
+.online-result-info h3{font-size:.86rem;margin:0 0 .2rem}
+.online-result-info p{font-size:.72rem;color:var(--muted);margin:0 0 .2rem;overflow-wrap:anywhere}
+.online-result-info small{font-size:.66rem;color:var(--muted)}
+.online-send-message{grid-column:2/-1;margin:0;font-size:.7rem}
+.online-disclaimer{font-size:.68rem;color:var(--muted);margin:.8rem 0 0}
+.form-message.loading,.online-send-message.loading{color:var(--accent-dark)}
+.online-result-card button:disabled,.online-search-form button:disabled{opacity:.65;cursor:wait}
+@media(max-width:767px){.online-search-form{align-items:stretch;flex-direction:column}.online-search-form button{width:100%}.online-result-card{grid-template-columns:52px minmax(0,1fr)}.online-result-card img{width:52px;height:52px}.online-result-card button,.online-send-message{grid-column:1/-1;width:100%}}
+.online-result-card{grid-template-columns:minmax(0,1fr) auto}
+.online-track-link{display:inline-block;margin-top:.35rem;color:var(--accent);font-size:.68rem;font-weight:700}
+@media(max-width:767px){.online-result-card{grid-template-columns:1fr}.online-result-card button,.online-send-message{grid-column:1;width:100%}}

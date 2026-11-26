@@ -1,12 +1,15 @@
 RIFFLY - COMO TESTAR
 
-Requisitos:
-- Python 3 instalado e configurado no PATH.
+1. Extraia a pasta inteira.
+2. Execute INICIAR_RIFFLY.bat.
+3. O script testa o servidor antes de abrir o navegador.
+4. O endereco usado sera http://127.0.0.1:8000/index.html.
+5. NAO abra os HTML por duplo clique.
+6. Mantenha a janela Riffly Server aberta.
 
-Execução:
-1. Baixe/clique em INICIAR_RIFFLY.bat.
-2. Aguarde o servidor local iniciar.
-3. O navegador será aberto automaticamente.
-4. Para encerrar, feche o navegador e a janela do servidor.
+Se o servidor nao iniciar, a janela Riffly Server mostrara o erro real do Python (por exemplo, porta 8000 ocupada).
 
 
+Atualizações desta versão:
+- Após editar uma música, o sistema retorna automaticamente para a tela de detalhes da música.
+- O filtro de afinação apresenta as afinações Standard, Drop D, Drop C, D Standard, Drop B e DADGAD, além de outras afinações presentes nas músicas cadastradas.
